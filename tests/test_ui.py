@@ -5,7 +5,7 @@ import importlib
 import json
 
 from conftest import imports_of, violates
-from langchain_core.messages import AIMessage, HumanMessage
+from langchain_core.messages import AIMessage, HumanMessage, ToolMessage
 
 from pm_assistant.config import REPO_ROOT
 from pm_assistant.ui import cli, gradio_app
@@ -63,13 +63,43 @@ def test_gradio_forwards_history_and_message():
                {"role": "assistant", "content": [{"type": "text", "text": "hello"}],
                 "metadata": None}]
     reply = asyncio.run(respond("who leads PRJ-01?", history))
-    assert reply == "reply from agent" and type(reply) is str
+    assert [m.content for m in reply] == ["reply from agent"]
+    assert type(reply[-1].content) is str
     sent = spy.calls[0]
     assert [type(m) for m in sent] == [HumanMessage, AIMessage, HumanMessage]
     assert [m.text for m in sent] == ["hi", "hello", "who leads PRJ-01?"]
     # A reply fed back as history (Gradio API path) works again.
-    again = asyncio.run(respond("and now?", [*history, {"role": "assistant", "content": reply}]))
-    assert again == "reply from agent"
+    again = asyncio.run(respond("and now?", [*history, {"role": "assistant",
+                                                       "content": reply[-1].content}]))
+    assert again[-1].content == "reply from agent"
+
+
+def test_gradio_shows_the_tools_the_agent_chose_but_does_not_send_them_back():
+    class ToolUsingGraph(GraphSpy):
+        async def ainvoke(self, state):
+            self.calls.append(state["messages"])
+            call = {"name": "assign_contractor", "args": {"person": "Kenji"}, "id": "c1"}
+            return {"messages": [
+                *state["messages"],
+                AIMessage("", tool_calls=[call]),
+                ToolMessage("Assignment failed", tool_call_id="c1", status="error"),
+                AIMessage("Could not assign Kenji."),
+            ]}
+
+    spy = ToolUsingGraph()
+
+    async def factory():
+        return spy
+
+    respond = gradio_app.make_respond(factory)
+    reply = asyncio.run(respond("assign Kenji", []))
+    assert [m.metadata.get("title") for m in reply[:-1]] == ["🔧 assign_contractor — failed"]
+    assert '"person": "Kenji"' in reply[0].content
+    assert reply[-1].content == "Could not assign Kenji."
+    history = [{"role": "user", "content": "assign Kenji"},
+               *[{"role": m.role, "content": m.content, "metadata": m.metadata} for m in reply]]
+    asyncio.run(respond("thanks", history))
+    assert [m.text for m in spy.calls[1]] == ["assign Kenji", "Could not assign Kenji.", "thanks"]
 
 
 def test_gradio_demo_builds():

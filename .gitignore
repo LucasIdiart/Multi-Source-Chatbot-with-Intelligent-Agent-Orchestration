@@ -8,3 +8,4 @@ data/runtime/
 .langgraph_api/
 .gradio/
 *.egg-info/
+.worker/

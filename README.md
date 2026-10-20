@@ -120,6 +120,9 @@ server process (~1–2 s); tool discovery happens once per process.
 
 ## Setup
 
+> Step-by-step instructions (install, API key, every UI, demo script, troubleshooting):
+> **[docs/GETTING_STARTED.md](docs/GETTING_STARTED.md)**.
+
 Requires [uv](https://docs.astral.sh/uv/) and an Anthropic API key.
 
 ```bash
@@ -150,7 +153,8 @@ Open <https://agentchat.vercel.app>, set *Deployment URL* `http://localhost:2024
 the `info_pipeline` graph. (`--allow-blocking` is needed because the MCP stdio client makes a
 blocking `shutil.which` call when it spawns the action server.)
 
-**Gradio:** `uv run pm-gradio` → <http://127.0.0.1:7860>
+**Gradio:** `uv run pm-gradio` → <http://127.0.0.1:7860> (a collapsible 🔧 box above each answer
+shows the tool the agent chose and its arguments, using Gradio's built-in message metadata)
 
 **Terminal:** `uv run pm-chat` (exit with Ctrl+C)
 
