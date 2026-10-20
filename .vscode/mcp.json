@@ -1,0 +1,10 @@
+{
+  "servers": {
+    "pm-assistant": {
+      "type": "stdio",
+      "command": "uv",
+      "args": ["--directory", "${workspaceFolder}", "run", "pm-assistant-mcp"],
+      "env": { "ANTHROPIC_API_KEY": "${env:ANTHROPIC_API_KEY}", "PYTHONIOENCODING": "utf-8" }
+    }
+  }
+}

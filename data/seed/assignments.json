@@ -1,0 +1,15 @@
+[
+  {"person_id": "P-001", "project_id": "PRJ-01", "role": "delivery lead", "allocation_pct": 50, "assigned_at": "2026-06-01"},
+  {"person_id": "P-003", "project_id": "PRJ-01", "role": "frontend engineer", "allocation_pct": 80, "assigned_at": "2026-06-01"},
+  {"person_id": "P-009", "project_id": "PRJ-01", "role": "ux designer", "allocation_pct": 40, "assigned_at": "2026-06-10"},
+  {"person_id": "P-007", "project_id": "PRJ-01", "role": "qa engineer", "allocation_pct": 50, "assigned_at": "2026-07-01"},
+  {"person_id": "P-002", "project_id": "PRJ-02", "role": "tech lead", "allocation_pct": 70, "assigned_at": "2026-04-15"},
+  {"person_id": "P-004", "project_id": "PRJ-02", "role": "data engineer", "allocation_pct": 100, "assigned_at": "2026-04-15"},
+  {"person_id": "P-011", "project_id": "PRJ-02", "role": "backend engineer", "allocation_pct": 50, "assigned_at": "2026-05-02"},
+  {"person_id": "P-007", "project_id": "PRJ-02", "role": "qa engineer", "allocation_pct": 30, "assigned_at": "2026-05-20"},
+  {"person_id": "P-005", "project_id": "PRJ-03", "role": "ml lead", "allocation_pct": 30, "assigned_at": "2026-09-01"},
+  {"person_id": "P-012", "project_id": "PRJ-04", "role": "product manager", "allocation_pct": 40, "assigned_at": "2026-03-01"},
+  {"person_id": "P-008", "project_id": "PRJ-04", "role": "mobile engineer", "allocation_pct": 20, "assigned_at": "2026-03-01"},
+  {"person_id": "P-006", "project_id": "PRJ-05", "role": "infrastructure lead", "allocation_pct": 80, "assigned_at": "2026-07-01"},
+  {"person_id": "P-010", "project_id": "PRJ-05", "role": "security engineer", "allocation_pct": 60, "assigned_at": "2026-07-01"}
+]

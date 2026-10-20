@@ -1,0 +1,8 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "pm_assistant": "pm_assistant.agent.graph:make_graph",
+    "info_pipeline": "pm_assistant.info.subgraph:make_info_graph"
+  },
+  "python_version": "3.12"
+}

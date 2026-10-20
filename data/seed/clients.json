@@ -1,0 +1,6 @@
+[
+  {"id": "C-01", "name": "Aurora Health", "industry": "healthcare"},
+  {"id": "C-02", "name": "Bluefin Logistics", "industry": "logistics"},
+  {"id": "C-03", "name": "Cedar Bank", "industry": "fintech"},
+  {"id": "C-04", "name": "Driftwood Retail", "industry": "retail"}
+]

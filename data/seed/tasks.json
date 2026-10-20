@@ -1,0 +1,12 @@
+[
+  {"id": "T-001", "project_id": "PRJ-01", "title": "Implement accessible appointment booking flow", "status": "in_progress", "assignee_id": "P-003", "due_date": "2026-11-07"},
+  {"id": "T-002", "project_id": "PRJ-01", "title": "Run WCAG 2.2 audit on portal prototype", "status": "todo", "assignee_id": "P-009", "due_date": "2026-11-14"},
+  {"id": "T-003", "project_id": "PRJ-01", "title": "Design HIPAA audit log schema", "status": "blocked", "assignee_id": null, "due_date": "2026-10-31"},
+  {"id": "T-004", "project_id": "PRJ-02", "title": "Backfill six months of engine telemetry", "status": "in_progress", "assignee_id": "P-004", "due_date": "2026-10-28"},
+  {"id": "T-005", "project_id": "PRJ-02", "title": "Load-test ingestion API at 20k events per second", "status": "todo", "assignee_id": "P-007", "due_date": "2026-11-05"},
+  {"id": "T-006", "project_id": "PRJ-02", "title": "Migrate device registry to PostgreSQL", "status": "done", "assignee_id": "P-011", "due_date": "2026-09-30"},
+  {"id": "T-007", "project_id": "PRJ-03", "title": "Collect labelled fraud dataset from Cedar Bank", "status": "todo", "assignee_id": "P-005", "due_date": "2026-11-30"},
+  {"id": "T-008", "project_id": "PRJ-04", "title": "Prototype one-tap checkout on Android", "status": "blocked", "assignee_id": "P-008", "due_date": null},
+  {"id": "T-009", "project_id": "PRJ-05", "title": "Terraform modules for reporting VPC", "status": "in_progress", "assignee_id": "P-006", "due_date": "2026-10-25"},
+  {"id": "T-010", "project_id": "PRJ-05", "title": "Threat model for data transfer to AWS", "status": "todo", "assignee_id": "P-010", "due_date": "2026-11-10"}
+]
